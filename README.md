@@ -8,7 +8,21 @@ This tool offers the following features:
 - Remove a specific WFP filter by filter id
 - Support to run in C2 with in-memory PE execution module (e.g., `BruteRatel's memexec`)
 
-**The current EDR process block list (edrProcess) includes only a limited number of EDR solutions (e.g., MDE, Elastic EDR). It would be appreciated if someone could assist in expanding the process list in `EDRSilencer.c` to encompass a broader range of other EDR solutions.**
+The tool currently supports the following EDRs:
+- Microsoft Defender for Endpoint and Microsoft Defender Antivirus
+- Elastic EDR
+- Trellix EDR
+- Qualys EDR
+- CrowdStrike
+- SentinelOne
+- Cylance
+- Cybereason
+- Carbon Black EDR
+- Carbon Black Cloud
+- Tanium
+- Palo Alto Networks Traps/Cortex XDR
+- FortiEDR
+**As I do not have access to all these EDRs for testing, please do not hesitate to correct me if the listed processes (edrProcess in `EDRSilencer.c`) prove insufficient in blocking all alert, detection, or event forward traffic.**
 
 ## Testing Environment
 Tested in Windows 10 and Windows Server 2016
