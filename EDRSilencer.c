@@ -4,6 +4,10 @@ char* edrProcess[] = {
 // Microsoft Defender for Endpoint and Microsoft Defender Antivirus
     "MsMpEng.exe",
     "MsSense.exe",
+    "SenseIR.exe",
+    "SenseNdr.exe",
+    "SenseCncProxy.exe",
+    "SenseSampleUploader.exe",
 // Elastic EDR
     "elastic-agent.exe",
     "elastic-endpoint.exe",
@@ -12,6 +16,45 @@ char* edrProcess[] = {
     "xagt.exe",
 // Qualys EDR
     "QualysAgent.exe",
+// CrowdStrike
+    "CSFalconService.exe",
+    "CSFalconContainer.exe",
+// SentinelOne
+    "SentinelAgent.exe",
+    "SentinelAgentWorker.exe",
+    "SentinelServiceHost.exe",
+    "SentinelStaticEngine.exe",  
+    "LogProcessorService.exe",
+    "SentinelStaticEngineScanner.exe",
+    "SentinelHelperService.exe",
+    "SentinelBrowserNativeHost.exe",
+// Cylance
+    "CylanceSvc.exe",
+// Cybereason
+    "AmSvc.exe",
+    "CrAmTray.exe",
+    "CrsSvc.exe",
+    "ExecutionPreventionSvc.exe",
+    "CybereasonAV.exe",
+// Carbon Black EDR
+    "cb.exe",
+// Carbon Black Cloud
+    "RepMgr.exe",
+    "RepUtils.exe",
+    "RepUx.exe",
+    "RepWAV.exe",
+    "RepWSC.exe",
+// Tanium
+    "TaniumClient.exe",
+    "TaniumCX.exe",
+    "TaniumDetectEngine.exe",
+// Palo Alto Networks Traps/Cortex XDR
+    "Traps.exe",
+    "cyserver.exe",
+    "CyveraService.exe",
+    "CyvrFsFlt.exe",
+// FortiEDR
+    "fortiedr.exe"
 };
 
 BOOL inWfpFlag[sizeof(edrProcess) / sizeof(edrProcess[0])] = { FALSE };
