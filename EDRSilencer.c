@@ -54,7 +54,9 @@ char* edrProcess[] = {
     "CyveraService.exe",
     "CyvrFsFlt.exe",
 // FortiEDR
-    "fortiedr.exe"
+    "fortiedr.exe",
+// Cisco Secure Endpoint (Formerly Cisco AMP)
+    "sfc.exe",
 };
 
 BOOL inWfpFlag[sizeof(edrProcess) / sizeof(edrProcess[0])] = { FALSE };
