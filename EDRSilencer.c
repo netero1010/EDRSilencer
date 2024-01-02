@@ -16,9 +16,6 @@ char* edrProcess[] = {
     "xagt.exe",
 // Qualys EDR
     "QualysAgent.exe",
-// CrowdStrike
-    "CSFalconService.exe",
-    "CSFalconContainer.exe",
 // SentinelOne
     "SentinelAgent.exe",
     "SentinelAgentWorker.exe",
@@ -54,7 +51,9 @@ char* edrProcess[] = {
     "CyveraService.exe",
     "CyvrFsFlt.exe",
 // FortiEDR
-    "fortiedr.exe"
+    "fortiedr.exe",
+// Cisco Secure Endpoint (Formerly Cisco AMP)
+    "sfc.exe"
 };
 
 BOOL inWfpFlag[sizeof(edrProcess) / sizeof(edrProcess[0])] = { FALSE };
@@ -327,15 +326,16 @@ void UnblockWfpFilter(UINT64 filterId) {
 }
 
 void PrintHelp() {
-    printf("Usage: EDROutBlock.exe <blockedr/block/unblockall/unblock>\n");
+    printf("Usage: EDRSilencer.exe <blockedr/block/unblockall/unblock>\n");
+    printf("Version: 1.1\n");
     printf("- Add WFP filters to block the IPv4 and IPv6 outbound traffic of all detected EDR processes:\n");
-    printf("  EDROutBlock.exe blockedr\n\n");
+    printf("  EDRSilencer.exe blockedr\n\n");
     printf("- Add WFP filters to block the IPv4 and IPv6 outbound traffic of a specific process (full path is required):\n");
-    printf("  EDROutBlock.exe block \"C:\\Windows\\System32\\curl.exe\"\n\n");
+    printf("  EDRSilencer.exe block \"C:\\Windows\\System32\\curl.exe\"\n\n");
     printf("- Remove all WFP filters applied by this tool:\n");
-    printf("  EDROutBlock.exe unblockall\n\n");
+    printf("  EDRSilencer.exe unblockall\n\n");
     printf("- Remove a specific WFP filter based on filter id:\n");
-    printf("  EDROutBlock.exe unblock <filter id>");
+    printf("  EDRSilencer.exe unblock <filter id>");
 }
 
 int main(int argc, char *argv[]) {

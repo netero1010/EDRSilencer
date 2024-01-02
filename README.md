@@ -13,7 +13,6 @@ The tool currently supports the following EDRs:
 - Elastic EDR
 - Trellix EDR
 - Qualys EDR
-- CrowdStrike
 - SentinelOne
 - Cylance
 - Cybereason
