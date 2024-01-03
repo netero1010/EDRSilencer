@@ -9,6 +9,7 @@ char* edrProcess[] = {
     "SenseCncProxy.exe",
     "SenseSampleUploader.exe",
 // Elastic EDR
+    "winlogbeat.exe"
     "elastic-agent.exe",
     "elastic-endpoint.exe",
     "filebeat.exe",
