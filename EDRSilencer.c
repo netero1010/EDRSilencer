@@ -54,6 +54,8 @@ char* edrProcess[] = {
     "fortiedr.exe",
 // Cisco Secure Endpoint (Formerly Cisco AMP)
     "sfc.exe"
+// Harfanglab EDR - Hurukai agent
+    "hurukai.exe"
 };
 
 BOOL inWfpFlag[sizeof(edrProcess) / sizeof(edrProcess[0])] = { FALSE };
