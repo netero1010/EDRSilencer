@@ -22,6 +22,9 @@ The tool currently supports the following EDRs:
 - Palo Alto Networks Traps/Cortex XDR
 - FortiEDR
 - Cisco Secure Endpoint (Formerly Cisco AMP)
+- ESET Inspect
+- Harfanglab EDR
+- TrendMicro Apex One
 
 **As I do not have access to all these EDRs for testing, please do not hesitate to correct me if the listed processes (edrProcess in `EDRSilencer.c`) prove insufficient in blocking all alert, detection, or event forward traffic.**
 
