@@ -70,6 +70,9 @@ char* edrProcess[] = {
     "TMBMSRV.exe",
     "CNTAoSMgr.exe",
     "TmCCSF.exe"
+// CrowdStrike Falcon
+    "CSFalconContainer.exe"
+    "CSFalconService.exe"
 };
 
 BOOL inWfpFlag[sizeof(edrProcess) / sizeof(edrProcess[0])] = { FALSE };
