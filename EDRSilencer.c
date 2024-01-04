@@ -69,9 +69,9 @@ char* edrProcess[] = {
     "PccNTMon.exe",
     "TMBMSRV.exe",
     "CNTAoSMgr.exe",
-    "TmCCSF.exe"
+    "TmCCSF.exe",
 // CrowdStrike Falcon
-    "CSFalconContainer.exe"
+    "CSFalconContainer.exe",
     "CSFalconService.exe"
 };
 
