@@ -7,6 +7,7 @@ This tool offers the following features:
 - Remove all WFP filters created by this tool
 - Remove a specific WFP filter by filter id
 - Support to run in C2 with in-memory PE execution module (e.g., `BruteRatel's memexec`)
+- Some EDR controls (e.g., minifilter) deny access when a process attempts to obtain a file handle of its EDR processes (e.g., through `CreateFileW`). However, the `FwpmGetAppIdFromFileName0` API, which is used to obtain the FWP app id of the targeted EDR process, calls `CreateFileW` internally. To avoid this, a custom `FwpmGetAppIdFromFileName0` was implemented to construct the app id without invoking `CreateFileW`, thus preventing unexpected failures when adding a WFP filter to an EDR process
 
 The tool currently supports the following EDRs:
 - Microsoft Defender for Endpoint and Microsoft Defender Antivirus
@@ -49,7 +50,7 @@ Usage: EDRSilencer.exe <blockedr/block/unblockall/unblock>
 
 ## Compile
 ```
-x86_64-w64-mingw32-gcc EDRSilencer.c -o EDRSilencer.exe -lfwpuclnt utils.c
+x86_64-w64-mingw32-gcc EDRSilencer.c utils.c -o EDRSilencer.exe -lfwpuclnt
 ```
 
 ## Example
