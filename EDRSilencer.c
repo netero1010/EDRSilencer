@@ -8,6 +8,9 @@ char* edrProcess[] = {
     "SenseNdr.exe",
     "SenseCncProxy.exe",
     "SenseSampleUploader.exe",
+    "HealthService.exe",
+    "MonitoringHost.exe",
+    "MpCmdRun.exe",
 // Elastic EDR
 	"winlogbeat.exe",
     "elastic-agent.exe",
@@ -26,6 +29,13 @@ char* edrProcess[] = {
     "SentinelStaticEngineScanner.exe",
     "SentinelHelperService.exe",
     "SentinelBrowserNativeHost.exe",
+    "LogCollector.exe",
+    "SentinelMemoryScanner.exe",
+    "SentinelRanger.exe",
+    "SentinelRemediation.exe",
+    "SentinelRemoteShellHost.exe",
+    "SentinelScanFromContextMenu.exe",
+    "SentinelUI.exe",
 // Cylance
     "CylanceSvc.exe",
 // Cybereason
