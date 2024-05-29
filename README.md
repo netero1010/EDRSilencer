@@ -26,6 +26,15 @@ The tool currently supports the following EDRs:
 - ESET Inspect
 - Harfanglab EDR
 - TrendMicro Apex One
+- 火绒
+- 360
+- 百度杀软
+- 安全狗
+- D盾
+- 云锁
+- 护卫神
+- 火绒
+- 趋势科技
 
 **As I do not have access to all these EDRs for testing, please do not hesitate to correct me if the listed processes (edrProcess in `EDRSilencer.c`) prove insufficient in blocking all alert, detection, or event forward traffic.**
 
@@ -48,7 +57,7 @@ Usage: EDRSilencer.exe <blockedr/block/unblockall/unblock>
   EDRSilencer.exe unblock <filter id>
 ```
 
-## Compile
+## Compile (with ParrotSec)
 ```
 x86_64-w64-mingw32-gcc EDRSilencer.c utils.c -o EDRSilencer.exe -lfwpuclnt
 ```
