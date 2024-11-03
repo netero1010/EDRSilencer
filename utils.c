@@ -41,6 +41,13 @@ BOOL CheckProcessIntegrityLevel() {
         return FALSE;
     }
 
+    if (pTIL->Label.Sid == NULL || *GetSidSubAuthorityCount(pTIL->Label.Sid) < 1) {
+        printf("[-] SID structure is invalid.\n");
+        LocalFree(pTIL);
+        CloseHandle(hToken);
+        return FALSE;
+    }
+	
     dwIntegrityLevel = *GetSidSubAuthority(pTIL->Label.Sid, (DWORD)(UCHAR)(*GetSidSubAuthorityCount(pTIL->Label.Sid) - 1));
 
     if (dwIntegrityLevel >= SECURITY_MANDATORY_HIGH_RID) {
