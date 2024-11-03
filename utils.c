@@ -41,6 +41,13 @@ BOOL CheckProcessIntegrityLevel() {
         return FALSE;
     }
 
+    if (pTIL->Label.Sid == NULL || *GetSidSubAuthorityCount(pTIL->Label.Sid) < 1) {
+        printf("[-] SID structure is invalid.\n");
+        LocalFree(pTIL);
+        CloseHandle(hToken);
+        return FALSE;
+    }
+	
     dwIntegrityLevel = *GetSidSubAuthority(pTIL->Label.Sid, (DWORD)(UCHAR)(*GetSidSubAuthorityCount(pTIL->Label.Sid) - 1));
 
     if (dwIntegrityLevel >= SECURITY_MANDATORY_HIGH_RID) {
@@ -218,13 +225,11 @@ BOOL GetProviderGUIDByDescription(PCWSTR providerDescription, GUID* outProviderG
         return FALSE;
     }
 
-    BOOL found = FALSE;
     for (UINT32 i = 0; i < numProviders; i++) {
         if (providers[i]->displayData.description != NULL) {
             if (wcscmp(providers[i]->displayData.description, providerDescription) == 0) {
                 *outProviderGUID = providers[i]->providerKey;
-                found = TRUE;
-                break;
+                return TRUE;
             }
         }   
     }
@@ -235,5 +240,5 @@ BOOL GetProviderGUIDByDescription(PCWSTR providerDescription, GUID* outProviderG
 
     FwpmProviderDestroyEnumHandle0(hEngine, enumHandle);
     FwpmEngineClose0(hEngine);
-    return found;
+    return FALSE;
 }
