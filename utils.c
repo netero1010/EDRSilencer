@@ -218,11 +218,13 @@ BOOL GetProviderGUIDByDescription(PCWSTR providerDescription, GUID* outProviderG
         return FALSE;
     }
 
+    BOOL found = FALSE;
     for (UINT32 i = 0; i < numProviders; i++) {
         if (providers[i]->displayData.description != NULL) {
             if (wcscmp(providers[i]->displayData.description, providerDescription) == 0) {
                 *outProviderGUID = providers[i]->providerKey;
-                return TRUE;
+                found = TRUE;
+                break;
             }
         }   
     }
@@ -233,5 +235,5 @@ BOOL GetProviderGUIDByDescription(PCWSTR providerDescription, GUID* outProviderG
 
     FwpmProviderDestroyEnumHandle0(hEngine, enumHandle);
     FwpmEngineClose0(hEngine);
-    return FALSE;
+    return found;
 }
