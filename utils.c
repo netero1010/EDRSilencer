@@ -141,7 +141,7 @@ ErrorCode ConvertToNtPath(PCWSTR filePath, wchar_t* ntPathBuffer, size_t bufferS
         return CUSTOM_FAILED_TO_GET_DOS_DEVICE_NAME;
     }
 
-    swprintf(ntPathBuffer, bufferSize, L"%S%S", ntDrivePath, filePath + wcslen(driveName));
+    swprintf(ntPathBuffer, bufferSize, L"%ls%ls", ntDrivePath, filePath + wcslen(driveName));
     
     for (size_t i = 0; ntPathBuffer[i] != L'\0'; ++i) {
         ntPathBuffer[i] = towlower(ntPathBuffer[i]);
